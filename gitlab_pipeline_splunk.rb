@@ -1,5 +1,7 @@
 #!/opt/gitlab/embedded/bin/ruby
 
+# https://docs.gitlab.com/ee/administration/plugins.html
+
 # By using the embedded ruby version we eliminate the possibility
 # that our chosen language would be unavailable
 
