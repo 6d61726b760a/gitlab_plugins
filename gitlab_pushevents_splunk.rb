@@ -3,6 +3,8 @@
 # By using the embedded ruby version we eliminate the possibility
 # that our chosen language would be unavailable
 
+# https://docs.gitlab.com/ee/administration/plugins.html
+
 require 'net/http'
 require 'uri'
 require 'json'
