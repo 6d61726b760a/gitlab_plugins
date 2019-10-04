@@ -1,6 +1,6 @@
 #!/opt/gitlab/embedded/bin/ruby
 
-# By using the embedded ruby version we eliminate the possibility 
+# By using the embedded ruby version we eliminate the possibility
 # that our chosen language would be unavailable
 
 require 'net/http'
@@ -20,8 +20,8 @@ headers = {
   'Content-Type' => 'application/json',
   'Accept' => 'application/json'
   }
-  
-# create our splunk payload  
+
+# create our splunk payload
 payload = {
   'index' => 'test_index',
   'sourcetype' => 'gitlab:pipeline',
@@ -34,7 +34,7 @@ http.use_ssl = true
 request = Net::HTTP::Post.new(uri.request_uri, headers)
 request.body = payload.to_json
 
-# send our request 
+# send our request
 response = http.request(request)
 
 # get our http response
