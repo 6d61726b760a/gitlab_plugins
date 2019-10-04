@@ -12,7 +12,7 @@ require 'json'
 ARGS = JSON.parse(STDIN.read)
 
 # we only want to do something if this is a pipeline object
-return unless ARGS['object_kind'] == 'pipeline'
+return unless ARGS['object_kind'] == 'pipeline' and %w(success failed canceled).include?(ARGS['object_attributes']['status'])
 
 # splunk url,headers etc
 uri = URI.parse("https://your-splunk-endpoint:443/services/collector/event")
