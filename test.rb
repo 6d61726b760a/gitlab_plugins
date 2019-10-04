@@ -8,4 +8,4 @@ ARGS = JSON.parse(STDIN.read)
 # return unless ARGS['object_kind'] == 'pipeline'
 
 # dump our input to a log file
-File.write('/tmp/rb-data.txt', ARGS.to_json, mode: 'o')
+File.write('/tmp/rb-data.txt', ARGS.to_json, mode: 'w+')
