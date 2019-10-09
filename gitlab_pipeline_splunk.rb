@@ -11,7 +11,7 @@ require 'json'
 # parse our input
 ARGS = JSON.parse(STDIN.read)
 
-# we only want to do something if this is a pipeline object
+# we only want to do something if this is a pipeline object and it has completed
 return unless ARGS['object_kind'] == 'pipeline' and %w(success failed canceled).include?(ARGS['object_attributes']['status'])
 
 # splunk url,headers etc
