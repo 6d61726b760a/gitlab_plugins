@@ -8,6 +8,8 @@ require 'net/http'
 require 'uri'
 require 'json'
 
+LOGFILE = '/tmp/gitlab_splunk_plugin.log'
+
 # parse our input
 ARGS = JSON.parse(STDIN.read)
 
@@ -17,7 +19,7 @@ return unless ARGS['object_kind'] == 'pipeline' and %w(success failed canceled).
 # splunk url,headers etc
 uri = URI.parse("https://your-splunk-endpoint:443/services/collector/event")
 headers = {
-  'Authorization' => 'Splunk BNJ29X74-82C3-4283-4GT8-L4GW6RGS334J',
+  'Authorization' => 'Splunk XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
   'Content-Type' => 'application/json',
   'Accept' => 'application/json'
   }
@@ -47,5 +49,6 @@ logmsg = {
 }
 
 # log the response/result
-File.write('/tmp/gitlab_splunk_plugin.log', logmsg, mode: 'a+')
-File.write('/tmp/gitlab_splunk_plugin.log', "\n", mode: 'a+')
+open(LOGFILE, 'a+') do |f|
+      f.puts logmsg
+end
